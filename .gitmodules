@@ -1,0 +1,3 @@
+[submodule "Hasaki/vendor/spdlog"]
+	path = Hasaki/vendor/spdlog
+	url = https://github.com/gabime/spdlog
