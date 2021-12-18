@@ -8,3 +8,5 @@
 //------ Entry Point ---------
 
 #include "Hasaki/EntryPoint.h"
+#include "Hasaki/Events/Event.h"
+#include "Hasaki/Events/KeyEvent.h"

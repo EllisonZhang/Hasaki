@@ -11,13 +11,14 @@ int main(int argc, char** argv) {
 	int a = 5;
 	int b = 6;
 	HSK_CORE_WARN("Initialized App Log!");
-	HSK_CLIENT_ERROR("Initialized Core Log! Var={0} asd={1}",a,b);
+	HSK_CLIENT_ERROR("Initialized Core Log! Var={0} asd={1}", a, b);
 
 	auto app = HSK::CreateApplication();
 
 	app->Run();
 
 	delete app;
+
 }
 
 #endif

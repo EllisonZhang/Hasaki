@@ -9,3 +9,6 @@
 #else 
 	#error Hasaki only support for windows for now!
 #endif
+
+
+#define BIT(x) 1<<(x)

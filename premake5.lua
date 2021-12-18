@@ -8,7 +8,11 @@ workspace "Hasaki"
 		"Dist"
 	}
 
-outputdir = "%{cfg.buildcfg}-%{cfg.system}-%cfg.architecture"
+outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+IncludeDir = {}
+IncludeDir["GLFW"] = "Hasaki/vendor/GLFW/include"
+include "Hasaki/vendor/GLFW"
 
 project "Hasaki"
 	location "Hasaki"
@@ -16,23 +20,31 @@ project "Hasaki"
 	language "C++"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	targetdir ("bin-inter/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{
-		"{prj.name}/src/**.h",
-		"{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
 	}
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"		
+	}
+	
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
-		cppdialect "c++17"
+		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0"
+		systemversion "latest"
 
 		defines
 		{
@@ -48,12 +60,13 @@ project "Hasaki"
 	filter "configurations:Debug"
 		defines "HSK_DEBUG"
 		symbols "On"
+
 	filter "configurations:Release"
 		defines "HSK_RELEASE"
-		symbols "On"
+		optimize "On"
 	filter "configurations:Dist"
 		defines "HSK_DIST"
-		symbols "On"
+		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
@@ -61,7 +74,13 @@ project "Sandbox"
 	language "C++"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	targetdir ("bin-inter/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
 
 	includedirs
 	{
@@ -75,9 +94,9 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "c++17"
+		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0.17134.0"
+		systemversion "latest"
 
 		defines
 		{
@@ -89,7 +108,7 @@ project "Sandbox"
 		symbols "On"
 	filter "configurations:Release"
 		defines "HSK_RELEASE"
-		symbols "On"
+		optimize "On"
 	filter "configurations:Dist"
 		defines "HSK_DIST"
-		symbols "On"
+		optimize "On"

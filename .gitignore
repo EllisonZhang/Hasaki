@@ -1,4 +1,7 @@
 .vs/
 bin/
 bin-inter/
+bin-int/
 *.user
+.sln
+.vcxproj

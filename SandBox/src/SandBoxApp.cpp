@@ -7,7 +7,6 @@ public:
 
 	~SandBox() {
 	}
-
 };
 
 HSK::Application* HSK::CreateApplication() {
