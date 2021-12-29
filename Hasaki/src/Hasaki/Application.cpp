@@ -1,3 +1,4 @@
+#include "HasakiPCH.h"
 #include "Application.h"
 
 namespace HSK {

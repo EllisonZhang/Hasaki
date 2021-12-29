@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Core.h"
+#include "HasakiPCH.h"
 
-#include <iostream>
+#include "../Core.h"
 
 namespace HSK {
 
@@ -39,7 +39,6 @@ namespace HSK {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategory() const override {return category;}
 
-
 	class HSK_API Event
 	{
 	public:
@@ -53,6 +52,30 @@ namespace HSK {
 		}
 	protected:
 		bool isHandled = false;
+	};
+
+	class EventDispatcher
+	{
+		template<typename T>
+		using EventFn = std::function<bool(T&)>;
+	public:
+		EventDispatcher(Event& event)
+			: m_Event(event)
+		{
+		}
+
+		template<typename T>
+		bool Dispatch(EventFn<T> func)
+		{
+			if (m_Event.GetEventType() == T::GetStaticType())
+			{
+				m_Event.m_Handled = func(*(T*)&m_Event);
+				return true;
+			}
+			return false;
+		}
+	private:
+		Event& m_Event;
 	};
 
 }

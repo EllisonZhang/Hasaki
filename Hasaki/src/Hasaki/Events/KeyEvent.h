@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace HSK {
 	/*Abstract Class of keyboard input*/
 	class HSK_API KeyEvent : public Event

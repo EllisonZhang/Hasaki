@@ -1,6 +1,6 @@
 workspace "Hasaki"
 	architecture "x64"
-	
+	startproject "Sandbox"
 	configurations
 	{
 		"Debug",
@@ -21,6 +21,9 @@ project "Hasaki"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	
+	pchheader "HasakiPCH.h"
+	pchsource "Hasaki/src/HasakiPCH.cpp"
 
 	files
 	{
