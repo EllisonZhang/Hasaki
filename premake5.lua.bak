@@ -1,6 +1,6 @@
 workspace "Hasaki"
 	architecture "x64"
-	startproject "Sandbox"  
+	startproject "Sandbox"
 	configurations
 	{
 		"Debug",

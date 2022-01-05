@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Hasaki">
+      <UniqueIdentifier>{5675EEB6-4217-198D-2BD2-2CE11713A0DD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hasaki\Events">
+      <UniqueIdentifier>{7A040C1F-E6C4-8755-AFFF-D0D21B7FCC31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hasaki\Platform">
+      <UniqueIdentifier>{6A123D2E-D69D-AAF2-DFAE-2DE74BB906F3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hasaki\Platform\Windows">
+      <UniqueIdentifier>{A486C39C-10BE-0B34-19C8-6F57857E322D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Hasaki.h" />
+    <ClInclude Include="src\Hasaki\Application.h">
+      <Filter>Hasaki</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hasaki\Core.h">
+      <Filter>Hasaki</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hasaki\EntryPoint.h">
+      <Filter>Hasaki</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hasaki\Events\ApplicationEvent.h">
+      <Filter>Hasaki\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hasaki\Events\Event.h">
+      <Filter>Hasaki\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hasaki\Events\KeyEvent.h">
+      <Filter>Hasaki\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hasaki\Events\MouseEvent.h">
+      <Filter>Hasaki\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hasaki\Log.h">
+      <Filter>Hasaki</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hasaki\Platform\Windows\WindowsWindow.h">
+      <Filter>Hasaki\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Hasaki\Window.h">
+      <Filter>Hasaki</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HasakiPCH.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Hasaki\Application.cpp">
+      <Filter>Hasaki</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hasaki\Log.cpp">
+      <Filter>Hasaki</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Hasaki\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Hasaki\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HasakiPCH.cpp" />
+  </ItemGroup>
+</Project>
