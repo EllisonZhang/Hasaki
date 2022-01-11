@@ -2,7 +2,7 @@
 
 #include "HasakiPCH.h"
 
-#include "../Core.h"
+#include "Hasaki/Core.h"
 
 namespace HSK {
 
@@ -41,6 +41,7 @@ namespace HSK {
 
 	class HSK_API Event
 	{
+		friend class EventDispatcher;
 	public:
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
@@ -60,16 +61,14 @@ namespace HSK {
 		using EventFn = std::function<bool(T&)>;
 	public:
 		EventDispatcher(Event& event)
-			: m_Event(event)
-		{
-		}
+			: m_Event(event) {}
 
 		template<typename T>
 		bool Dispatch(EventFn<T> func)
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_Handled = func(*(T*)&m_Event);
+				m_Event.isHandled = func(*(T*)&m_Event);
 				return true;
 			}
 			return false;
@@ -77,5 +76,10 @@ namespace HSK {
 	private:
 		Event& m_Event;
 	};
+
+	inline std::ostream& operator<<(std::ostream& os, const Event& e)
+	{
+		return os << e.ToString();
+	}
 
 }

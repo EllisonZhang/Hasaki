@@ -14,17 +14,25 @@ namespace HSK {
 		inline unsigned int GetHeight() const override { return m_Data.height;};
 
 		// window attributes
-		virtual void SetEventCallBack(EventCallBackFnc func) override;
+		virtual void SetEventCallBack(const EventCallBackFnc& func) override { m_Data.EventCallBack = func; };
 		virtual void SetVSync(bool enabled) override;
 		virtual bool IsVSync() const override;
 
 	private:
 		virtual void Init(const WindowProps& props);
-		virtual void ShutDown();
-
-		EventCallBackFnc EventCallBack;
-		bool VSync;
+		virtual void ShutDown();	
+		
 		GLFWwindow* win_Window;
-		WindowProps m_Data;
+
+		struct WindowData
+		{
+			std::string title;
+			EventCallBackFnc EventCallBack;
+			unsigned int width, height;
+			bool VSync;
+
+		};
+
+		WindowData m_Data;
 	};
 }

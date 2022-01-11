@@ -27,7 +27,7 @@ namespace HSK {
 		virtual unsigned int GetHeight() const = 0;
 
 		// window attributes
-		virtual void SetEventCallBack(EventCallBackFnc func) = 0;
+		virtual void SetEventCallBack(const EventCallBackFnc& func) = 0;
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
 

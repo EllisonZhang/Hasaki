@@ -1,6 +1,7 @@
 #pragma once
 #include "Log.h"
 
+
 #ifdef HSK_PLATFORM_WINDOWS
 
 extern HSK::Application* HSK::CreateApplication();
@@ -18,7 +19,6 @@ int main(int argc, char** argv) {
 	app->Run();
 
 	delete app;
-
 }
 
 #endif

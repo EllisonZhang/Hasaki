@@ -14,6 +14,6 @@
 
 #include "Hasaki/Log.h"
 
-#ifdef HZ_PLATFORM_WINDOWS 
-#include <Windows.h>
+#ifdef HSK_PLATFORM_WINDOWS 
+	#include <Windows.h>
 #endif 

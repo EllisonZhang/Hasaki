@@ -2,8 +2,7 @@
 
 #include "Core.h"
 #include "spdlog/spdlog.h"
-#include "spdlog/pattern_formatter.h"
-
+#include "spdlog/fmt/ostr.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
 namespace HSK {
@@ -22,11 +21,10 @@ namespace HSK {
 
 }
 
-
 // Core log macros
 #define HSK_CORE_TRACE(...)  ::HSK::Log::GetCoreLogger()->trace(__VA_ARGS__)
 #define HSK_CORE_INFO(...) ::HSK::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define HSK_CORE_WARN(...) HSK::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define HSK_CORE_WARN(...) ::HSK::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define HSK_CORE_ERROR(...) ::HSK::Log::GetCoreLogger()->error(__VA_ARGS__)
 #define HSK_CORE_FATAL(...) ::HSK::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 

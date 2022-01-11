@@ -4,18 +4,18 @@
 
 namespace HSK {
 	
-	class HSK_API MouseMovedEvent : Event{
+	class HSK_API MouseMovedEvent : public Event{
 	public:
 		MouseMovedEvent(float X, float Y) : mPositionX(X), mPositionY(Y) {}
 
-		inline float GetX() {return mPositionX;}
-		inline float GetY() {return mPositionY;}
+		inline float GetX() const {return mPositionX;}
+		inline float GetY() const {return mPositionY;}
 
-		std::string ToString() 
+		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseMovedEvent " << "X:" << mPositionX << "Y:" << mPositionY;
-			ss.str();
+			ss << "MouseMovedEvent " << mPositionX << ", " << mPositionY;
+			return ss.str();
 		}
 
 		EVENT_CLASS_TYPE(MouseMoved)
@@ -24,7 +24,7 @@ namespace HSK {
 		float mPositionX, mPositionY;
 	};
 
-	class HSK_API MouseScrolledEvent : Event {
+	class HSK_API MouseScrolledEvent : public Event {
 	public:
 		MouseScrolledEvent(float X, float Y) : xOffset(X), yOffset(Y) {}
 
@@ -34,9 +34,12 @@ namespace HSK {
 		std::string ToString()
 		{
 			std::stringstream ss;
-			ss << "MouseScrolledEvent " << "X:" << xOffset << "Y:" << yOffset;
-			ss.str();
+			ss << "MouseScrolledEvent: "<< xOffset << "," << yOffset;
+			return ss.str();
 		}
+
+		EVENT_CLASS_TYPE(MouseScrolled)
+		EVENT_CLASS_CATEGORY(EventCategoryMouse)
 
 	private:
 		float xOffset, yOffset;
