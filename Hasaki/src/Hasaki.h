@@ -3,6 +3,7 @@
 // for use by Hasaki applications
 
 #include "Hasaki/Application.h"
+#include "Layer.h"
 #include "Hasaki/Log.h"
 
 //------ Entry Point ---------

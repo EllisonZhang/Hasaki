@@ -47,6 +47,7 @@ namespace HSK {
 		virtual const char* GetName() const = 0;
 		virtual int GetCategory() const = 0;
 		virtual std::string ToString() const { return GetName(); }
+		const bool& IsHandled() { return isHandled; }
 
 		inline bool IsInCategory(EventCategory category) {
 			return GetCategory() & category;

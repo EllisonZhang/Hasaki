@@ -18,12 +18,30 @@ namespace HSK {
 	{
 	}
 
+	void Application::PushLayer(Layer* layer) {
+		layerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* layer) {
+		layerStack.PushOverLay(layer);
+	}
+
+
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNC(Application::OnWindowClose));
 
-		HSK_CORE_TRACE("{0}",e);
+		HSK_CORE_TRACE("on Event: {0}",e);
+
+		for (auto it = layerStack.end(); it != layerStack.begin(); )
+		{
+			(*--it)->OnEvent(e);
+			if (e.IsHandled()) {
+				break;
+			}
+		}
+
 	}
 
 	void Application::Run() {
@@ -32,6 +50,11 @@ namespace HSK {
 		{
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (Layer* layer : layerStack) {
+				layer->OnUpdate();
+			}
+
 			m_Window->OnUpdate();
 		}   
 	

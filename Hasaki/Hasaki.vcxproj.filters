@@ -47,12 +47,8 @@
       <Filter>Hasaki</Filter>
     </ClInclude>
     <ClInclude Include="src\HasakiPCH.h" />
-    <ClInclude Include="Layer.h">
-      <Filter>Hasaki</Filter>
-    </ClInclude>
-    <ClInclude Include="LayerStack.h">
-      <Filter>Hasaki</Filter>
-    </ClInclude>
+    <ClInclude Include="src\Layer.h" />
+    <ClInclude Include="src\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Hasaki\Application.cpp">
@@ -65,11 +61,7 @@
       <Filter>Hasaki\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\HasakiPCH.cpp" />
-    <ClCompile Include="Layer.cpp">
-      <Filter>Hasaki</Filter>
-    </ClCompile>
-    <ClCompile Include="LayerStack.cpp">
-      <Filter>Hasaki</Filter>
-    </ClCompile>
+    <ClCompile Include="src\Layer.cpp" />
+    <ClCompile Include="src\LayerStack.cpp" />
   </ItemGroup>
 </Project>

@@ -13,10 +13,10 @@ namespace HSK{
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnAttach() {}
-		virtual void OnAttach() {}
+		virtual void OnUpdate() {}
+		virtual void OnEvent(Event& event) {}
 
-		inline std::string& GetName() const { return debugName; }
+		inline const std::string& GetName() const { return debugName; }
 
 	protected:
 		std::string debugName;
